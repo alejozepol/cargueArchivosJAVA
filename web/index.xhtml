@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <h:form enctype="multipart/form-data">
+            <h:panelGrid columns="2">
+                <h:outputLabel value="Cargar archivo" for="fileUpload" />
+                <h:inputFile value="#{fileUploadFormBean.fileUpload}" id="fileUpload" />
+
+                <h:commandButton value="Cargar"/>
+            </h:panelGrid>
+            
+            <h:panelGrid rendered="#{not empty(fileUploadFormBean.fileUpload)}" columns="2"  >
+
+                <h:outputText value="fileName:" />
+                <h:outputText value="#{fileUploadFormBean.fileUpload.submittedFileName}" />
+
+                <h:outputText value="contentType:" />
+                <h:outputText value="#{fileUploadFormBean.fileUpload.contentType}" />
+
+                <h:outputText value="size:" />
+                <h:outputText value="#{fileUploadFormBean.fileUpload.size}" />
+            </h:panelGrid>
+        </h:form> 
+    </h:body>
+</html>
+
